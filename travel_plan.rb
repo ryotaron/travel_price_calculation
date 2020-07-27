@@ -1,4 +1,5 @@
-#ハッシュごとにプランをまとめ、配列に格納
+#メソッドの定義
+  #ハッシュごとにプランをまとめ、配列に格納
 def summarize_place_price
   [
     { place: "沖縄", price: 10000 },
@@ -46,7 +47,7 @@ def calculate_price(selected_travel_plan,person_number)
 end
   #割引価格の計算
 def calcutlate_discount_price(total_price)
-  discout_total_price = total_price * 0.9
+  total_price * 0.9
 end
 
 def disp_price(selected_travel_plan,person_number,total_price,discout_total_price)
