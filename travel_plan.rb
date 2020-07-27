@@ -16,7 +16,7 @@ while true do
   plan_number = gets.to_i 
   # break if 1 <= plan_number && 3 >= plan_number
   # break if (1..3).cover?(plan_number) 
-    break if (1..3).include?(plan_number)
+  break if (1..3).include?(plan_number)
 
   puts "不正な値です。再度入力してください。"
 end
@@ -27,7 +27,7 @@ puts "#{selected_travel_plan[:place]}旅行が選択されました"
 while true do
   puts "参加人数を入力してください！"
   person_number = gets.to_i
-    break if 1<= person_number
+  break if 1<= person_number
   puts "不正な値です"
 end
 #各料金の計算と表示
