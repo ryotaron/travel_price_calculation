@@ -1,5 +1,3 @@
-#メソッドの定義
-  #ハッシュごとにプランをまとめ、配列に格納
 def summarize_place_price
   [
     { place: "沖縄", price: 10000 },
@@ -46,26 +44,28 @@ def calculate_price(selected_travel_plan,person_number)
   selected_travel_plan[:price] * person_number 
 end
   #割引価格の計算
-def calcutlate_discount_price(total_price)
-  total_price * 0.9
+def calcutlate_discount_price(selected_travel_plan,person_number)
+  selected_travel_plan[:price] * person_number * 0.9
 end
 
-def disp_price(selected_travel_plan,person_number,total_price,discout_total_price)
+def disp_price(selected_travel_plan,person_number)
   puts "#{selected_travel_plan[:place]}旅行で人数は#{person_number}人ですね"
+  
   if person_number < 5
-    puts "トータル#{total_price}円になります"
+    puts "トータル#{calculate_price(selected_travel_plan,person_number)}円になります"
   else
-    puts "10%引き価格でトータル#{discout_total_price}円になります"   
+    puts "10%引き価格でトータル#{calcutlate_discount_price(selected_travel_plan,person_number)}円になります"   
   end
 end
 
 #メソッド呼び出し
 travel_plans = summarize_place_price
 plan_number = select_plan(travel_plans)
+
 selected_travel_plan = disp_selected_plan(travel_plans,plan_number)
-
 person_number = select_person_num
-total_price = calculate_price(selected_travel_plan,person_number)
-discout_total_price = calcutlate_discount_price(total_price)
 
-disp_price(selected_travel_plan,person_number,total_price,discout_total_price)
+calculate_price(selected_travel_plan,person_number)
+calcutlate_discount_price(selected_travel_plan,person_number)
+
+disp_price(selected_travel_plan,person_number)
