@@ -1,4 +1,4 @@
-def summarize_place_price
+def  summarize_plan
   [
     { place: "沖縄", price: 10000 },
     { place: "北海道", price: 20000 },
@@ -25,9 +25,9 @@ def select_plan(travel_plans)
 end
 
 def disp_selected_plan(travel_plans,plan_number)
-  selected_travel_plan = travel_plans[plan_number -1] 
-  puts "#{selected_travel_plan[:place]}旅行が選択されました"
-  selected_travel_plan  #メソッドの最後の値
+  selected_plan = travel_plans[plan_number -1] 
+  puts "#{selected_plan[:place]}旅行が選択されました"
+  selected_plan  #メソッドの最後の値
 end
 
 def select_person_num
@@ -40,32 +40,32 @@ def select_person_num
   person_number #メソッドの最後の値
 end
   #基本料金の計算
-def calculate_price(selected_travel_plan,person_number)
-  selected_travel_plan[:price] * person_number 
+def calculate_price(selected_plan,person_number)
+  selected_plan[:price] * person_number 
 end
   #割引価格の計算
-def calcutlate_discount_price(selected_travel_plan,person_number)
-  selected_travel_plan[:price] * person_number * 0.9
+def calcutlate_discount_price(selected_plan,person_number)
+  selected_plan[:price] * person_number * 0.9
 end
 
-def disp_price(selected_travel_plan,person_number)
-  puts "#{selected_travel_plan[:place]}旅行で人数は#{person_number}人ですね"
+def disp_price(selected_plan,person_number)
+  puts "#{selected_plan[:place]}旅行で人数は#{person_number}人ですね"
   
   if person_number < 5
-    puts "トータル#{calculate_price(selected_travel_plan,person_number)}円になります"
+    puts "トータル#{calculate_price(selected_plan,person_number)}円になります"
   else
-    puts "10%引き価格でトータル#{calcutlate_discount_price(selected_travel_plan,person_number)}円になります"   
+    puts "10%引き価格でトータル#{calcutlate_discount_price(selected_plan,person_number)}円になります"   
   end
 end
 
 #メソッド呼び出し
-travel_plans = summarize_place_price
+travel_plans =  summarize_plan
 plan_number = select_plan(travel_plans)
 
-selected_travel_plan = disp_selected_plan(travel_plans,plan_number)
+selected_plan = disp_selected_plan(travel_plans,plan_number)
 person_number = select_person_num
 
-calculate_price(selected_travel_plan,person_number)
-calcutlate_discount_price(selected_travel_plan,person_number)
+calculate_price(selected_plan,person_number)
+calcutlate_discount_price(selected_plan,person_number)
 
-disp_price(selected_travel_plan,person_number)
+disp_price(selected_plan,person_number)
